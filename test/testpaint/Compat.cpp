@@ -220,6 +220,12 @@ void TrackElement::DecrementPhotoTimeout()
     }
 }
 
+void TrackElement::SetPhotoRaw(uint8_t rawData)
+{
+    sequence &= ~MAP_ELEM_TRACK_SEQUENCE_TAKING_PHOTO_MASK;
+    sequence |= rawData << 4;
+}
+
 uint16_t TrackElement::GetMazeEntry() const
 {
     return mazeEntry;

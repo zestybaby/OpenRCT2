@@ -109,13 +109,9 @@ struct RCT12TileElementBase
     uint8_t clearance_height; // 3
 
     uint8_t GetType() const;
-    void SetType(uint8_t newType);
     uint8_t GetDirection() const;
-    void SetDirection(uint8_t direction);
-    uint8_t GetDirectionWithOffset(uint8_t offset) const;
     bool IsLastForTile() const;
     bool IsGhost() const;
-    void Remove();
 };
 
 /**
@@ -182,29 +178,19 @@ private:
     uint8_t ownership;    // 7
 public:
     uint8_t GetSlope() const;
-    void SetSlope(uint8_t newSlope);
 
     uint32_t GetSurfaceStyle() const;
-    void SetSurfaceStyle(uint32_t newStyle);
     uint32_t GetEdgeStyle() const;
-    void SetEdgeStyle(uint32_t newStyle);
 
     uint8_t GetGrassLength() const;
-    void SetGrassLength(uint8_t newLength);
-    void SetGrassLengthAndInvalidate(uint8_t newLength, CoordsXY coords);
-    void UpdateGrassLength(CoordsXY coords);
 
     uint8_t GetOwnership() const;
-    void SetOwnership(uint8_t newOwnership);
 
     uint32_t GetWaterHeight() const;
-    void SetWaterHeight(uint32_t newWaterHeight);
 
     uint8_t GetParkFences() const;
-    void SetParkFences(uint8_t newParkFences);
 
     bool HasTrackThatNeedsWater() const;
-    void SetHasTrackThatNeedsWater(bool on);
 };
 assert_struct_size(RCT12SurfaceElement, 8);
 
@@ -222,48 +208,33 @@ private:
 
 public:
     uint8_t GetEntryIndex() const;
-    void SetEntryIndex(uint8_t newIndex);
 
     uint8_t GetQueueBannerDirection() const;
-    void SetQueueBannerDirection(uint8_t direction);
 
     bool IsSloped() const;
-    void SetSloped(bool isSloped);
 
     uint8_t GetSlopeDirection() const;
-    void SetSlopeDirection(uint8_t newSlope);
 
     uint8_t GetRideIndex() const;
-    void SetRideIndex(uint8_t newRideIndex);
 
     uint8_t GetStationIndex() const;
-    void SetStationIndex(uint8_t newStationIndex);
 
     bool IsWide() const;
-    void SetWide(bool isWide);
 
     bool IsQueue() const;
-    void SetIsQueue(bool isQueue);
     bool HasQueueBanner() const;
-    void SetHasQueueBanner(bool hasQueueBanner);
 
     uint8_t GetEdges() const;
-    void SetEdges(uint8_t newEdges);
     uint8_t GetCorners() const;
-    void SetCorners(uint8_t newCorners);
     uint8_t GetEdgesAndCorners() const;
-    void SetEdgesAndCorners(uint8_t newEdgesAndCorners);
 
     bool HasAddition() const;
     uint8_t GetAddition() const;
     uint8_t GetAdditionEntryIndex() const;
-    void SetAddition(uint8_t newAddition);
 
     bool AdditionIsGhost() const;
-    void SetAdditionIsGhost(bool isGhost);
 
     uint8_t GetAdditionStatus() const;
-    void SetAdditionStatus(uint8_t newStatus);
 
     uint8_t GetRCT1PathType() const;
 };
@@ -296,49 +267,33 @@ struct RCT12TrackElement : RCT12TileElementBase
 
 public:
     uint8_t GetTrackType() const;
-    void SetTrackType(uint8_t newEntryIndex);
 
     uint8_t GetSequenceIndex() const;
-    void SetSequenceIndex(uint8_t newSequenceIndex);
 
     uint8_t GetRideIndex() const;
-    void SetRideIndex(uint8_t newRideIndex);
 
     uint8_t GetColourScheme() const;
-    void SetColourScheme(uint8_t newColourScheme);
 
     uint8_t GetStationIndex() const;
-    void SetStationIndex(uint8_t newStationIndex);
 
     bool HasChain() const;
-    void SetHasChain(bool on);
 
     bool HasCableLift() const;
-    void SetHasCableLift(bool on);
 
     bool IsInverted() const;
-    void SetInverted(bool inverted);
 
     uint8_t GetBrakeBoosterSpeed() const;
-    void SetBrakeBoosterSpeed(uint8_t speed);
 
     uint8_t HasGreenLight() const;
-    void SetHasGreenLight(uint8_t greenLight);
 
     uint8_t GetSeatRotation() const;
-    void SetSeatRotation(uint8_t newSeatRotation);
 
     uint16_t GetMazeEntry() const;
-    void SetMazeEntry(uint16_t newMazeEntry);
-    void MazeEntryAdd(uint16_t addVal);
-    void MazeEntrySubtract(uint16_t subVal);
 
     bool IsTakingPhoto() const;
-    void SetPhotoTimeout();
-    void DecrementPhotoTimeout();
+    uint8_t GetPhotoRaw() const;
 
     bool IsHighlighted() const;
-    void SetHighlight(bool on);
 
     // Used in RCT1, will be reintroduced at some point.
     // (See https://github.com/OpenRCT2/OpenRCT2/issues/7059)

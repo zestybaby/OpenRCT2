@@ -674,39 +674,39 @@ bool scenario_prepare_for_save()
 void scenario_fix_ghosts(rct_s6_data* s6)
 {
     // Remove all ghost elements
-    TileElement* destinationElement = s6->tile_elements;
-
-    for (int32_t y = 0; y < MAXIMUM_MAP_SIZE_TECHNICAL; y++)
-    {
-        for (int32_t x = 0; x < MAXIMUM_MAP_SIZE_TECHNICAL; x++)
-        {
-            TileElement* originalElement = map_get_first_element_at(x, y);
-            do
-            {
-                if (originalElement->flags & TILE_ELEMENT_FLAG_GHOST)
-                {
-                    BannerIndex bannerIndex = tile_element_get_banner_index(originalElement);
-                    if (bannerIndex != BANNER_INDEX_NULL)
-                    {
-                        rct_banner* banner = &s6->banners[bannerIndex];
-                        if (banner->type != BANNER_NULL)
-                        {
-                            banner->type = BANNER_NULL;
-                            if (is_user_string_id(banner->string_idx))
-                                s6->custom_strings[(banner->string_idx % RCT12_MAX_USER_STRINGS)][0] = 0;
-                        }
-                    }
-                }
-                else
-                {
-                    *destinationElement++ = *originalElement;
-                }
-            } while (!(originalElement++)->IsLastForTile());
-
-            // Set last element flag in case the original last element was never added
-            (destinationElement - 1)->flags |= TILE_ELEMENT_FLAG_LAST_TILE;
-        }
-    }
+//    TileElement* destinationElement = s6->tile_elements;
+//
+//    for (int32_t y = 0; y < MAXIMUM_MAP_SIZE_TECHNICAL; y++)
+//    {
+//        for (int32_t x = 0; x < MAXIMUM_MAP_SIZE_TECHNICAL; x++)
+//        {
+//            TileElement* originalElement = map_get_first_element_at(x, y);
+//            do
+//            {
+//                if (originalElement->flags & TILE_ELEMENT_FLAG_GHOST)
+//                {
+//                    BannerIndex bannerIndex = tile_element_get_banner_index(originalElement);
+//                    if (bannerIndex != BANNER_INDEX_NULL)
+//                    {
+//                        rct_banner* banner = &s6->banners[bannerIndex];
+//                        if (banner->type != BANNER_NULL)
+//                        {
+//                            banner->type = BANNER_NULL;
+//                            if (is_user_string_id(banner->string_idx))
+//                                s6->custom_strings[(banner->string_idx % RCT12_MAX_USER_STRINGS)][0] = 0;
+//                        }
+//                    }
+//                }
+//                else
+//                {
+//                    *destinationElement++ = *originalElement;
+//                }
+//            } while (!(originalElement++)->IsLastForTile());
+//
+//            // Set last element flag in case the original last element was never added
+//            (destinationElement - 1)->flags |= TILE_ELEMENT_FLAG_LAST_TILE;
+//        }
+//    }
 }
 
 void scenario_remove_trackless_rides(rct_s6_data* s6)
