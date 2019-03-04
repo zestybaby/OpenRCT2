@@ -109,9 +109,9 @@ android.applicationVariants.all { variant ->
 }
 
 dependencies {
-    compile 'commons-io:commons-io:2.5'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.google.android.gms:play-services-analytics:10.2.1'
+    implementation 'commons-io:commons-io:2.5'
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.google.android.gms:play-services-analytics:10.2.1'
 }
 
 apply plugin: 'com.google.gms.google-services'
